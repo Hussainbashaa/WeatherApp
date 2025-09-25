@@ -1,0 +1,241 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+
+  height: 100vh;
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+.title {
+  font-size: 2.5em;
+  margin: 0;
+  font-family: Dancing Script, cursive;
+}
+.searchbar {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.searchbar input {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  width: 900px;
+}
+.searchbar input:focus {
+  outline: none;
+}
+.searchbar button {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(to left, #4facfe, #00f2fe);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+}
+.searchbar button:hover {
+  background: #4facfe;
+}
+
+@media screen and (max-width: 900px) {
+  .searchbar input {
+    width: 150px;
+    font-size: 0.7em;
+  }
+  .searchbar button {
+    font-size: 0.8em;
+  }
+}
+.searchbar button:active {
+  .weather-card {
+    display: grid;
+  }
+}
+.weather-card {
+  display: none;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 250px;
+  height: fit-content;
+  transition: transform 0.5s;
+  margin: 20px;
+}
+
+.weather-card.show {
+  display: grid;
+}
+.city {
+  font-size: 1.5em;
+  margin-top: 10px;
+  max-height: 20%;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 60%;
+
+  margin: 0;
+}
+.weather-img {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+}
+.condition {
+  font-size: 1.2em;
+  margin: 0;
+  max-height: 10%;
+  font-family: dancing Script, cursive;
+}
+.temparature,
+.wind {
+  margin: 0;
+  font-size: 1em;
+  max-height: 10%;
+}
+.weather-card:hover {
+  transform: scale(1.03) rotateY(10deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 900px) {
+  .weather-card {
+    width: 200px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+  .city {
+    font-size: 1.2em;
+    max-height: 15%;
+  }
+  .weather-img {
+    width: 100px;
+    height: 100px;
+  }
+  .condition {
+    font-size: 1em;
+    max-height: 8%;
+  }
+  .temparature,
+  .wind {
+    font-size: 0.8em;
+    max-height: 8%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .weather-card {
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .city {
+    font-size: 1em;
+    max-height: 10%;
+  }
+  .weather-img {
+    width: 80px;
+    height: 80px;
+  }
+  .condition {
+    font-size: 0.8em;
+    max-height: 6%;
+  }
+  .temparature,
+  .wind {
+    font-size: 0.7em;
+    max-height: 6%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .title {
+    font-size: 1.5em;
+  }
+  .searchbar input {
+    width: 100px;
+    font-size: 0.6em;
+  }
+  .searchbar button {
+    font-size: 0.7em;
+    padding: 8px;
+  }
+  .weather-card {
+    width: 120px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .city {
+    font-size: 0.8em;
+    max-height: 8%;
+  }
+  .weather-img {
+    width: 60px;
+    height: 60px;
+  }
+  .condition {
+    font-size: 0.6em;
+    max-height: 5%;
+  }
+  .temparature,
+  .wind {
+    font-size: 0.6em;
+    max-height: 5%;
+  }
+}
+#suggestions {
+  width: 500px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 38px;
+  text-align: center;
+}
+
+#suggestions div {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+#suggestions div:hover {
+  background-color: #f0f0ff;
+}
+
+#weatherContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .suggestions {
+    width: 150px;
+  }
+  .suggestions div {
+    width: 150px;
+  }
+}

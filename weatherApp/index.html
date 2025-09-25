@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Weather App</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="amcharts_weather_icons/css/weather-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="title-container">
+      <h1 class="title">Weather App</h1>
+    </div>
+    <div class="searchbar">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name"
+        class="searchbox"
+      />
+      <button class="searchbtn" id="searchbtn">Search</button>
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+    <div class="weather-card" id="weatherCard"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
