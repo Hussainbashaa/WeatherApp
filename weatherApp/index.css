@@ -1,7 +1,13 @@
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #4facfe, #00f2fe);
-
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   height: 100vh;
 }
 .title-container {
@@ -61,53 +67,56 @@ body {
 .weather-card {
   display: none;
   grid-template-rows: auto auto auto;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   text-align: center;
-  width: 250px;
-  height: fit-content;
-  transition: transform 0.5s;
-  margin: 20px;
+  width: 200px;
+  height: auto;
+  transition: transform 0.3s;
+  margin: 8px;
 }
 
 .weather-card.show {
   display: grid;
 }
+
 .city {
-  font-size: 1.5em;
-  margin-top: 10px;
-  max-height: 20%;
+  font-family:'Courier New', Courier, monospace ;
+  font-size: 1.3em;
+  margin: 4px 0;
+  font-weight: bold;
 }
+
 .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 60%;
+  margin: 0;
+}
 
-  margin: 0;
-}
 .weather-img {
-  width: 150px;
-  height: 150px;
-  margin: 0;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
 }
+
 .condition {
-  font-size: 1.2em;
-  margin: 0;
-  max-height: 10%;
-  font-family: dancing Script, cursive;
+  font-size: 1.1em;
+  margin: 2px 0;
+  font-family: "Dancing Script", cursive;
 }
+
 .temparature,
 .wind {
-  margin: 0;
-  font-size: 1em;
-  max-height: 10%;
+  margin: 2px 0;
+  font-size: 0.95em;
 }
+
 .weather-card:hover {
   transform: scale(1.03) rotateY(10deg);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
@@ -135,6 +144,32 @@ body {
   .wind {
     font-size: 0.8em;
     max-height: 8%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .weather-card {
+    display: grid;
+    grid-template-columns: auto;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .city {
+    font-size: 1em;
+    max-height: 10%;
+  }
+  .weather-img {
+    width: 80px;
+    height: 80px;
+  }
+  .condition {
+    font-size: 0.8em;
+    max-height: 6%;
+  }
+  .temparature,
+  .wind {
+    font-size: 0.7em;
+    max-height: 6%;
   }
 }
 @media screen and (max-width: 400px) {
@@ -174,6 +209,9 @@ body {
     padding: 8px;
   }
   .weather-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 120px;
     padding: 8px;
     border-radius: 8px;
@@ -238,4 +276,12 @@ body {
   .suggestions div {
     width: 150px;
   }
+}
+#weatherContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  min-height: 80vh; 
+  flex-wrap: wrap; 
+  gap: 20px;
 }
