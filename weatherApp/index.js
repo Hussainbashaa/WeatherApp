@@ -79,7 +79,7 @@ function getWeatherIcon(condition, temperature, isDay) {
     return folder + (isDay ? "thunder.svg" : "thunder.svg");
   }
 
-  return folder + "weather.svg"; // fallback
+  return folder + "weather.svg"; 
 }
 
 window.addEventListener("load", () => {
@@ -90,49 +90,10 @@ window.addEventListener("load", () => {
   });
   cityInput.value = "";
 });
-
-const suggestions = document.getElementById("suggestions");
-
-const allCities = [
-  "Delhi",
-  "Mumbai",
-  "Bangalore",
-  "Chennai",
-  "Kolkata",
-  "London",
-  "New York",
-  "Tokyo",
-  "Paris",
-  "Sydney",
-  "Los Angeles",
-  "Beijing",
-  "Moscow",
-  "Dubai",
-  "Singapore",
-  "Hyderabad",
-];
-
-cityInput.addEventListener("input", () => {
-  const query = cityInput.value.trim().toLowerCase();
-  suggestions.innerHTML = "";
-
-  if (!query) return;
-
-  const matchedCities = allCities.filter((city) =>
-    city.toLowerCase().startsWith(query)
-  );
-
-  matchedCities.forEach((city) => {
-    const div = document.createElement("div");
-    div.style.cursor = "pointer";
-    div.style.padding = "5px";
-    div.innerText = city;
-
-    div.addEventListener("click", () => {
-      cityInput.value = city;
-      suggestions.innerHTML = "";
-    });
-
-    suggestions.appendChild(div);
-  });
+searchbtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const city = cityInput.value.trim();
+  if (!city) return;
+  document.getElementById("weatherContainer").innerHTML = "";
+  getWeather(city);
 });
