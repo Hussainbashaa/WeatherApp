@@ -68,18 +68,37 @@ function getWeatherIcon(condition, temperature, isDay) {
   if (condition.includes("sunny") || condition.includes("clear")) {
     return folder + (isDay ? "day.svg" : "night.svg");
   }
+
   if (condition.includes("partly") || condition.includes("cloud")) {
     return folder + (isDay ? "cloudy-day-2.svg" : "cloudy-night-2.svg");
   }
-  if (condition.includes("rain")) {
-    return folder + (isDay ? "rainy-1.svg" : "rainy-6.svg");
+
+  if (condition.includes("rain") || condition.includes("drizzle")) {
+    return folder + (isDay ? "rainy-2.svg" : "rainy-7.svg");
   }
 
-  if (condition.includes("thunder")) {
+  if (condition.includes("snow")) {
+    return folder + (isDay ? "snowy.gif" : "snowy.gif");
+  }
+
+  if (
+    condition.includes("mist") ||
+    condition.includes("fog") ||
+    condition.includes("haze") ||
+    condition.includes("moist")
+  ) {
+    return folder + "mist.gif";
+  }
+
+  if (condition.includes("overcast")) {
+    return folder + "overcast.gif";
+  }
+
+  if (condition.includes("thunder") || condition.includes("storm")) {
     return folder + (isDay ? "thunder.svg" : "thunder.svg");
   }
 
-  return folder + "weather.svg"; 
+  return folder + "weather.svg";
 }
 
 window.addEventListener("load", () => {
